@@ -13,44 +13,62 @@ interface props{
     summary:string;
     img:string,
     title:string,
+    link:string,
 }
 const projects:props[]=[
     {
-        summary: `Welcome to a deep dive into one of my favorite projects! I'm excited to walk you through this journey,
-        revealing how I navigated from the initial concept to the final realization. It's a story of innovation,
-        resilience, and problem-solving`,
+        summary: `🎮 Dive into GameUi: The ultimate single-page showcase for web2 gaming classics like PES, Cyberpunk,
+         and FIFA! 🌟✨ Experience a sleek UI that envisions the future of 
+        gaming with blockchain integration, where in-game assets become on-chain treasures. Explore the future of gaming now! 🚀🔗💎`,
         img:'./bg1.PNG',
-        title:'GameUi'
+        title:'GameUi',
+        link:'https://trikontask.vercel.app/'
     },
     {
-        summary: `Welcome to a deep dive into one of my favorite projects! I'm excited to walk you through this journey,
-        revealing how I navigated from the initial concept to the final realization. It's a story of innovation,
-        resilience, and problem-solving`,
+        summary: `🌿 Welcome to Graza: A sleek, stylish platform for premium olive oil and gourmet products! 🛒✨ 
+        With an elegant UI and seamless cart functionality, 
+        shopping for the finest ingredients has never been this smooth. Elevate your culinary experience with just a few clicks! 🍈💫`,
         img:'./bg2.PNG',
-        title:'Graza'
+        title:'Graza',
+        link:'https://graza.vercel.app/'
     },
     {
-        summary: `Welcome to a deep dive into one of my favorite projects! I'm excited to walk you through this journey,
-        revealing how I navigated from the initial concept to the final realization. It's a story of innovation,
-        resilience, and problem-solving`,
+        summary: `🔐 Meet KRYPT: Your gateway to decentralized transactions on Ethereum! 🚀💎 Built with Hardhat and Solidity, this dApp transforms 
+        how you interact with blockchain, offering secure, seamless transactions. Explore the future of finance with cutting-edge tech! 💰🔗✨`,
         img:'./bg3.PNG',
-        title:'Krypt'
+        title:'Krypt',
+        link:'https://64da7e30e31abb007b297389--loquacious-sfogliatella-a5f7a1.netlify.app'
     },
     {
-        summary: `Welcome to a deep dive into one of my favorite projects! I'm excited to walk you through this journey,
-        revealing how I navigated from the initial concept to the final realization. It's a story of innovation,
-        resilience, and problem-solving`,
+        summary: `🌐 Dive into the future with our decentralized questing engine! 🚀✨ Embark on epic quests, earn crypto rewards, 
+        and explore a cutting-edge system design. 
+        Check out the GitHub repo for the code that powers this innovative adventure platform. Ready to level up? 🎮🔗💰`,
         img:'./bg4.PNG',
-        title:'Quest Engine'
+        title:'Quest Engine',
+        link:'https://github.com/J-dev740/questEngine'
     },
     {
-        summary: `Welcome to a deep dive into one of my favorite projects! I'm excited to walk you through this journey,
-        revealing how I navigated from the initial concept to the final realization. It's a story of innovation,
-        resilience, and problem-solving`,
+        summary: `🌟 Dive into Drop-State! 🌟 Our sleek frontend prototype empowers artists to showcase and 
+        sell their unique t-shirt designs.
+         Seamlessly onboard and transform your creativity into merch magic—where fashion meets artistry in a vibrant marketplace! 🎨👕✨`,
         img:'./bg5.PNG',
-        title:'Drop State'
+        title:'Drop State',
+        link:'https://dropstate-clone.vercel.app'
     },
-    
+    {
+        summary: `🚀 Introducing Do-Drag: The ultimate Kanban board with slick drag-and-drop functionality! 🛠️✨ Seamlessly manage tasks with a modern,
+         intuitive design and robust session storage—just like a to-do list, but way cooler. Perfect for keeping your projects on track with style! 📊🔥`,
+        img:'./bg6.PNG',
+        title:'Do-Drag',
+        link:'https://snitch-ten.vercel.app'
+    },
+    {
+        summary:`📝 Introducing OPEN-NOTE: Your open-source desktop Markdown editor crafted with ElectronJs, TypeScript, and React! 🚀✨ Enjoy seamless inline Markdown editing, autosaving, and dynamic note management. With local storage and Jotai for efficient state management,
+         it’s the ultimate tool for effortless note-taking and organization. Dive into a smoother, smarter writing experience! 🌟📚`,
+         img:'./bg7.PNG',
+         title:'Open-Note',
+         link:'https://github.com/J-dev740/OpenNote'
+    }
 ]
 
 export const Projects = () => {
@@ -60,7 +78,7 @@ export const Projects = () => {
         <div className='flex w-full h-fit flex-col items-center mb-20  gap-12 min-[810px]:gap-14 justify-start '>
             {/* render project cards */}
             {projects.map((p:props,idx:number)=>(
-                <PCard key={idx} title={p.title} summary={p.summary} img={p.img}/>
+                <PCard key={idx} title={p.title} summary={p.summary} img={p.img} link={p.link}/>
             ))}
 
         </div>
@@ -69,7 +87,7 @@ export const Projects = () => {
   )
 }
 
-const PCard=({summary,title,img}:props)=>{
+const PCard=({summary,title,img,link}:props)=>{
     const ref=React.useRef(null);
     const isInView=useInView(ref,{ margin: '0px 0px -100px 0px' })
     return(
@@ -90,12 +108,16 @@ const PCard=({summary,title,img}:props)=>{
                 {/* img */}
                 <div
                 style={{backgroundImage:`url(${img})`}}
-                 className={`flex min-[810px]:w-[400px] m-4 min-[810px]:h-[250px] h-[200px] w-[200px] rounded-lg  bg-cover bg-no-repeat bg-top `} />
+                 className={`flex min-[810px]:w-[400px] m-4 min-[810px]:h-[250px] h-[200px] w-[200px] rounded-lg  bg-cover bg-no-repeat bg-top `}>
+                <div className='min-[810px]:hidden absolute top-0 right-0 '>
+                <LinkItem  icon={TfiDirection} link={link}/>
+                </div>
+                 </div>
                 {/* second section */}
                 <div className='flex max-[810px]:hidden w-full  flex-col gap-y-4 items-start justify-start px-4 py-6 '>
                     <div className='flex flex-row w-full justify-between '>
                     <p className=' font-solway w-fit font-bold  ml-4 text-[32px]'>{title}</p>
-                    <LinkItem icon={TfiDirection} link='github'/>
+                    <LinkItem icon={TfiDirection} link={link}/>
                     </div>
                     <div className=' ml-4  min-[810px]:flex flex-wrap max-w-[500px] text-[#8C8FA6] text-[20px] tracking-normal leading-[28px] text-wrap  text-start justify-start font-gae '>
                         <p className='flex text-wrap flex-wrap w-full '>
@@ -105,6 +127,8 @@ const PCard=({summary,title,img}:props)=>{
                     </div>
                 </div>
                 <div className='flex min-[810px]:hidden items-center max-h-[30px]  truncate justify-center text-[22px]'>{title}</div>
+
+
 
 
             </div>

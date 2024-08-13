@@ -13,10 +13,9 @@ import { Sticky } from './Sticky';
 import curve from '../../public/curve.png'
 import { motion} from 'framer-motion';
 import  { forwardRef } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 const LinksMotion=motion(Subsection);
-
-
 
 export const LinkItem=forwardRef<HTMLAnchorElement,LinkItem>(({link,icon:Icon},ref)=>(
     
@@ -24,7 +23,7 @@ export const LinkItem=forwardRef<HTMLAnchorElement,LinkItem>(({link,icon:Icon},r
     ref={ref}
      href={link} target='_blank'>
         <div 
-         className='flex group  hover:scale-125 transition-all transform duration-300 ease-in-out hover:rounded-[18px] text-[24px] hover:-rotate-45  items-center justify-center w-[40px] h-[40px] rounded-[14px] border-[#474747] border-[2px]  '>
+         className={twMerge('flex group  hover:scale-125 transition-all transform duration-300 ease-in-out hover:rounded-[18px] text-[24px] hover:-rotate-45  items-center justify-center w-[40px] h-[40px] rounded-[14px] border-[#474747] border-[2px]  ','')}>
         <Icon  className='text-[#474747] group-hover:opacity-10 duration-300  group-hover:hidden transition-all transform duration-900 flex  font-solway font-light' />
         <MdOutlineArrowForward className='text-[#474747] hidden group-hover:flex group-hover:scale-110 transition-all duration-900 opacity-0 group-hover:opacity-90  duration-300 font-solway font-light'/>
     </div>
