@@ -117,7 +117,7 @@ export const links:LinkItem[]=[
                   {/* download resume part */}
                   <div className=' relative flex flex-col group hover:-translate-y-2 translate-x-2 transition-all duration-300 min-[810px]:self-start  items-center justify-center  w-fit '>
                       {/* download resume */}
-                      <a href=''>
+                      <a href='https://drive.google.com/file/d/1u3lKoIjDjrFTKPrhkerU0lHErgXEKVLE/view?usp=sharing' target='_blank'>
                       <div 
                       className='flex text-center  hover:underline hover:underline-offset-2 transition-all duration-300 ease-in items-center  max-[810px]:justify-center justify-start  gap-2'>
                           <FiDownload className='w-[19px] h-[19px] font-extrabold mr-1' />
