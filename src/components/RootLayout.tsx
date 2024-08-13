@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge'
   return (
     <div
     {...props}
-    className={twMerge(`flex p-2 text-[#474747]   pb-20  bg-[url('/bg.svg')] min-h-screen min-w-screen w-full h-full`,className)}
+    className={twMerge(`flex p-2 text-[#474747]  pb-20  bg-[url('/bg.svg')] min-h-screen min-w-screen w-full h-full`,className)}
     >
         {children}
     </div>

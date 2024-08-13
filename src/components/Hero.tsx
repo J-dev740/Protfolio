@@ -15,7 +15,7 @@ export const Hero = () => {
         {/* sticky notes part */}
         <div className='  absolute min-[810px]:-bottom-[180%] min-[810px]:-right-[50%] min-[600px]:-bottom-[200%] -bottom-[120%] w-[257px] h-[246px]'>
             <div className='relative w-full h-full '>
-            <Sticky content={'👋🏼'} className='absolute h-[100px] w-[100px]  shadow-black min-[600px]:h-[130px] min-[600px]:w-[130px] text-[50px]  text-center left-2 -top-10 bg-yellow-100 drop-shadow-xl'/>
+            <Sticky content={'👋🏼'} className='absolute h-[100px] w-[100px]  shadow-black min-[600px]:h-[130px] min-[600px]:w-[130px] text-[50px]  text-center left-2 max-[810px]:-top-0 -top-10 bg-yellow-100 drop-shadow-xl'/>
             <Sticky content={'Available for Hiring'} className='absolute h-[100px] w-[100px] min-[600px]:h-[130px] min-[600px]:w-[130px] bg-lime-300  left-20  min-[600px]:top-32 top-10 drop-shadow-xl'/>
             </div>
 
