@@ -1,4 +1,4 @@
-import React, { ComponentProps, useState } from 'react'
+import React, { ComponentProps, } from 'react'
 import {motion} from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
 interface StickyProps{

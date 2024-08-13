@@ -3,15 +3,15 @@ import { Section } from './Section'
 import { Subsection } from './Subsection'
 import { IconType } from 'react-icons';
 import { CiLinkedin } from 'react-icons/ci';
-import {  FaGithub, FaWhatsapp } from 'react-icons/fa';
+import {  FaGithub} from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import { FiDownload, FiTwitter } from 'react-icons/fi';
 import {  MdOutlineArrowForward } from 'react-icons/md';
-import Lottie from 'lottie-react';
-import pencil from '../../public/resume.json'
+// import Lottie from 'lottie-react';
+// import pencil from '../../public/resume.json'
 import { Sticky } from './Sticky';
 import curve from '../../public/curve.png'
-import prof from '../../public/profile.jpeg'
+// import prof from '../../public/profile.jpeg'
 
 
 

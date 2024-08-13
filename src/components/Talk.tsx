@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { Section } from './Section'
 import { LinkItem, links } from './About';
 import emailjs from '@emailjs/browser'

@@ -1,4 +1,4 @@
-import {About, Hero, RootLayout, Section,Projects, Talk} from './components'
+import {About, Hero, RootLayout,Projects, Talk} from './components'
 
 function App() {
   return (
