@@ -1,0 +1,7 @@
+export * from './RootLayout'
+export * from './Section'
+export * from './About'
+export * from './Sticky'
+export * from './Hero'
+export * from './Projects'
+export * from './Talk'
