@@ -2,9 +2,12 @@
 import { Section } from './Section'
 // import cloud from '../../public/cloud.svg'
 import bubble from '../../public/bubbles.svg'
-import burst from '../../public/burst.gif'
+// import burst from '../../public/burst.gif'
 import { LinkItem } from './About'
 import {TfiDirection} from 'react-icons/tfi'
+import {motion,useInView} from 'framer-motion'
+// import {useInview} from 'react-intersection-observer'
+import React from 'react'
 
 interface props{
     summary:string;
@@ -52,8 +55,9 @@ const projects:props[]=[
 
 export const Projects = () => {
   return (
-    <Section title='Projects' >
-        <div className='flex w-full h-fit flex-col items-center mb-20  gap-10 justify-start '>
+    <Section 
+    title='Projects' >
+        <div className='flex w-full h-fit flex-col items-center mb-20  gap-12 min-[810px]:gap-14 justify-start '>
             {/* render project cards */}
             {projects.map((p:props,idx:number)=>(
                 <PCard key={idx} title={p.title} summary={p.summary} img={p.img}/>
@@ -66,19 +70,27 @@ export const Projects = () => {
 }
 
 const PCard=({summary,title,img}:props)=>{
+    const ref=React.useRef(null);
+    const isInView=useInView(ref,{ margin: '0px 0px -100px 0px' })
     return(
-        <div className=' relative group flex w-fit border-[1px] border-black  bg-black rounded-xl '>
+        <motion.div 
+        ref={ref}
+        initial={{ opacity:0,x:-100}}
+        animate={isInView?{opacity:1,x:0}:{opacity:0,x:-100}}
+        viewport={{once:false,amount:0.3}}
+        transition={{duration:0.2}}
+        className=' relative group flex w-fit border-[1px] border-black  bg-black rounded-xl '>
             <img src={bubble}
-             className='absolute opacity-0  max-[810px]:w-[50px] max-[810px]:h-[50px] max-[810px]:-top-5 group-hover:opacity-100 transition-all duration-700 w-[200px] h-[100px] z-20  -top-20 left-0 '/>
+             className='absolute opacity-0  max-[810px]:w-[80px] max-[810px]:h-[70px] max-[810px]:-top-16 group-hover:opacity-100 transition-all duration-700 w-[200px] h-[100px] z-20  -top-20 left-0 '/>
             {/* <img src={cloud}
              className='absolute opacity-100 group-hover:-translate-x-80 group-hover:-translate-y-28 group-hover:opacity-0 transition-all duration-500 w-[200px] h-[100px] z-20   -bottom-5 right-0 '/> */}
-            <div className={` relative flex -m-1 w-fit flex-row max-[810px]:flex-col items-center bg-[url("/bg.svg")] bg-white hover:-translate-x-4 hover:-translate-y-2 transition-all duration-300  bg-cover    rounded-xl  min-[810px]:gap-8 gap-1 max-w-[800px] max-h-[350px] `}>
-                <img src={burst} className='absolute z-20 -top-20 -right-20  max-[810px]:w-[50px] max-[810px]:h-[50px] max-[810px]:-top-5 max-[810px]:-right-5 w-[200px] h-[150px] flex '/>
+            <div className={` relative  group-hover:border-[2px] group-hover:border-stone-600 flex -m-1 w-fit flex-row max-[810px]:flex-col items-center bg-[url("/bg.svg")] bg-white hover:-translate-x-4 hover:-translate-y-2 transition-all duration-300  bg-cover    rounded-xl  min-[810px]:gap-8 gap-1 max-w-[800px] max-h-[350px] `}>
+                {/* <img src={burst} className='absolute z-20 -top-20 -right-20  max-[810px]:w-[50px] max-[810px]:h-[50px] max-[810px]:-top-5 max-[810px]:-right-5 w-[200px] h-[150px] flex '/> */}
 
                 {/* img */}
                 <div
                 style={{backgroundImage:`url(${img})`}}
-                 className={`flex min-[810px]:w-[400px] ml-4 min-[810px]:h-[250px] h-[200px] w-[200px] rounded-lg  bg-cover bg-no-repeat bg-top `} />
+                 className={`flex min-[810px]:w-[400px] m-4 min-[810px]:h-[250px] h-[200px] w-[200px] rounded-lg  bg-cover bg-no-repeat bg-top `} />
                 {/* second section */}
                 <div className='flex max-[810px]:hidden w-full  flex-col gap-y-4 items-start justify-start px-4 py-6 '>
                     <div className='flex flex-row w-full justify-between '>
@@ -96,6 +108,6 @@ const PCard=({summary,title,img}:props)=>{
 
 
             </div>
-        </div>
+        </motion.div>
     )
 }

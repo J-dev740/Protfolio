@@ -11,7 +11,26 @@ import {  MdOutlineArrowForward } from 'react-icons/md';
 // import pencil from '../../public/resume.json'
 import { Sticky } from './Sticky';
 import curve from '../../public/curve.png'
-// import prof from '../../public/profile.jpeg'
+import { motion} from 'framer-motion';
+import  { forwardRef } from 'react';
+
+const LinksMotion=motion(Subsection);
+
+
+
+export const LinkItem=forwardRef<HTMLAnchorElement,LinkItem>(({link,icon:Icon},ref)=>(
+    
+    <a
+    ref={ref}
+     href={link} target='_blank'>
+        <div 
+         className='flex group  hover:scale-125 transition-all transform duration-300 ease-in-out hover:rounded-[18px] text-[24px] hover:-rotate-45  items-center justify-center w-[40px] h-[40px] rounded-[14px] border-[#474747] border-[2px]  '>
+        <Icon  className='text-[#474747] group-hover:opacity-10 duration-300  group-hover:hidden transition-all transform duration-900 flex  font-solway font-light' />
+        <MdOutlineArrowForward className='text-[#474747] hidden group-hover:flex group-hover:scale-110 transition-all duration-900 opacity-0 group-hover:opacity-90  duration-300 font-solway font-light'/>
+    </div>
+        </a>
+))
+
 
 
 
@@ -37,11 +56,24 @@ export const links:LinkItem[]=[
         icon:FiTwitter
     },
 ]
- export const About = () => {
-  return (
-    <Section title='About'>
+// const itemVariants:Variants={
+//     inital:{
+//         x:0,
+//     },
+//     current:{
+        
+//     }
+// }
+ export const About =forwardRef<HTMLDivElement>(({...props},ref) => {
 
-        <div className='flex  min-[810px]:flex-row  flex-col w-full items-start min-[810px]:gap-x-5 justify-center'>
+  return (
+    <Section 
+    {...props}
+    ref={ref}
+    title='About' className='max-[810px]:mt-12'>
+
+        <div 
+        className='flex  min-[810px]:flex-row  flex-col w-full items-start min-[810px]:gap-x-5 justify-center'>
 {/* first section */}
             <div className='  flex flex-col items-start max-[810px]:self-center min-[810px]:w-1/2 min-[810px]:items-center justify-start px-4 py-2 '>
                   <div className='flex relative  w-[230px] h-[230px] '>
@@ -66,7 +98,7 @@ export const links:LinkItem[]=[
                       {/* yours truly */}
                       <p className='font-bold  font-gae text-[32px] flex absolute bottom-0 right-1'>Yours Truly</p>
                   </div>
-                  <div className=' relative  mt-2 flex w-[230px] h-[488px]'>
+                  <div className=' relative  mt-2  flex w-[230px] h-[488px]'>
                     <Sticky content={'Versatile Tool'} className='absolute bg-purple-300 left-1 top-5 drop-shadow-xl'/>
                     <Sticky content={'1+ years of Experience '} className='absolute  left-[122px] top-[100px] bg-yellow-300 drop-shadow-xl'/>
                     <Sticky content={'Sticky'} className='absolute bg-cyan-300 left-0 top-[250px] sm:top-[300px] z-20 drop-shadow-xl'/>
@@ -84,17 +116,24 @@ export const links:LinkItem[]=[
             </div>
 {/* second section */}
               <div className='flex flex-col  min-[810px]:w-1/2 items-center justify-center gap-y-[50px] w-full p-2  '>
-                  <Subsection title='Links' >
-                      <div className='flex min-[810px]:w-[90%] min-[810px]:justify-start min-[810px]:gap-10 max-[810px]:justify-between w-[80%]  items-center  '>
+                  <LinksMotion
+                  initial={{opacity:0,x:'100vw'}}
+                  animate={{opacity:1,x:0}}
+                  whileInView={{opacity:1,x:0}}
+                  transition={{duration:1,staggerChildren:0.3}}
+                  title='Links' className='max-[810px]:mt-8' >
+                      <div
+                       className='flex min-[810px]:w-[90%] min-[810px]:justify-start min-[810px]:gap-10 max-[810px]:justify-between w-[80%]  items-center  '>
                           {links.map((item:LinkItem,index:number) => (
-                              <LinkItem  key={index}icon={item.icon} link={item.link} />
+                              <LinkItem
+                                key={index}icon={item.icon} link={item.link} />
                           ))}
                       </div>
-                  </Subsection>
+                  </LinksMotion>
                   <Subsection title='skills' >
                       <div className='flex w-[50%] items-center min-[810px]:justify-start justify-between text-wrap flex-wrap gap-y-2 gap-x-2'>
                           {skills.map((item) => (
-                              <SkillItem skill={item} />
+                              <SkillItem key={item} skill={item} />
                           ))}
 
                       </div>
@@ -147,17 +186,9 @@ export const links:LinkItem[]=[
         </div>
     </Section>
   )
-}
+});
 
-export const LinkItem=({link,icon:Icon}:LinkItem)=>(
-    
-    <a href={link} target='_blank'>
-        <div  className='flex group  hover:scale-125 transition-all transform duration-300 ease-in-out hover:rounded-[18px] text-[24px] hover:-rotate-45  items-center justify-center w-[40px] h-[40px] rounded-[14px] border-[#474747] border-[2px]  '>
-        <Icon  className='text-[#474747] group-hover:opacity-10 duration-300  group-hover:hidden transition-all transform duration-900 flex  font-solway font-light' />
-        <MdOutlineArrowForward className='text-[#474747] hidden group-hover:flex group-hover:scale-110 transition-all duration-900 opacity-0 group-hover:opacity-90  duration-300 font-solway font-light'/>
-    </div>
-        </a>
-)
+
 
 const skills=[
     'frontend','backend','blockchain','DataStructures & Algorithms','System Design'
