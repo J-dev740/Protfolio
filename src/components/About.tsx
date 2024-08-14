@@ -112,27 +112,32 @@ const StickyMotion1=motion(Sticky);
                   <div className=' relative  mt-2  flex w-[230px] h-[488px]'>
                     <StickyMotion1
                                 initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
-                                animate={{opacity:1,rotate:25,}}
+                                whileInView={{opacity:1,rotate:25,}}
+                                viewport={{once:true,amount:0.5}}
                                 transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
                      content={'Versatile Tool'} className='absolute bg-purple-300 left-1 top-5 drop-shadow-xl'/>
                     <StickyMotion1
                                 initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
-                                animate={{opacity:1,rotate:25,}}
+                                whileInView={{opacity:1,rotate:25,}}
+                                viewport={{once:true,amount:0.5}}
                                 transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
                     content={'1+ years of Experience '} className='absolute  left-[122px] top-[100px] bg-yellow-300 drop-shadow-xl'/>
                     <StickyMotion1
                                                    initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
-                                                   animate={{opacity:1,rotate:25,}}
+                                                   whileInView={{opacity:1,rotate:25,}}
+                                                   viewport={{once:true,amount:0.5}}
                                                    transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
                      content={'Sticky'} className='absolute bg-cyan-300 left-0 top-[250px] sm:top-[300px] z-20 drop-shadow-xl'/>
                     <StickyMotion1 
                                                    initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
-                                                   animate={{opacity:1,rotate:25,}}
+                                                   whileInView={{opacity:1,rotate:25,}}
+                                                   viewport={{once:true,amount:0.5}}
                                                    transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
                     content={'Competetive Programmer'} className='absolute  -right-[20px] top-[200px] sm:top-[250px] z-10 bg-lime-300 drop-shadow-3xl shadow-black '/>
                     <StickyMotion1
                                                    initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
-                                                   animate={{opacity:1,rotate:25,}}
+                                                   whileInView={{opacity:1,rotate:25,}}
+                                                   viewport={{once:true,amount:0.5}}
                                                    transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
                     // style={{rotate:'40'}}
                      content={'From India'} className='absolute  left-[20px] sm:top-[400px] z-10  top-[350px] bg-gradient-to-tl  from-teal-600  to-white drop-shadow-xl'/>
