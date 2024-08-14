@@ -89,14 +89,14 @@ export const Projects = () => {
 
 const PCard=({summary,title,img,link}:props)=>{
     const ref=React.useRef(null);
-    const isInView=useInView(ref,{ margin: '0px 0px -100px 0px' })
+    const isInView=useInView(ref,{ margin: '0px 0px -150px 0px' })
     return(
         <motion.div 
         ref={ref}
         initial={{ opacity:0,x:-100}}
         animate={isInView?{opacity:1,x:0}:{opacity:0,x:-100}}
-        viewport={{once:false,amount:0.3}}
-        transition={{duration:0.2,ease:'easeInOut'}}
+        viewport={{once:true,amount:0.3}}
+        transition={{duration:0.2,ease:'easeInOut',type:'tween', }}
         className=' relative group flex w-fit border-[1px] border-black  bg-black rounded-xl '>
             <img src={bubble}
              className='absolute opacity-0  max-[810px]:w-[80px] max-[810px]:h-[70px] max-[810px]:-top-16 group-hover:opacity-100 transition-all duration-700 w-[200px] h-[100px] z-20  -top-20 left-0 '/>

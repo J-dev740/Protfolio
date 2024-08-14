@@ -116,10 +116,12 @@ export const links:LinkItem[]=[
 {/* second section */}
               <div className='flex flex-col  min-[810px]:w-1/2 items-center justify-center gap-y-[50px] w-full p-2  '>
                   <LinksMotion
-                  initial={{opacity:0,x:'100vw'}}
-                  animate={{opacity:1,x:0}}
+                  initial={{opacity:0,x:100}}
                   whileInView={{opacity:1,x:0}}
-                  transition={{duration:1,staggerChildren:0.3}}
+                  viewport={{once:true,amount:0.5}}
+                  transition={{duration:1,delay:0.2}}
+                //   animate={{opacity:1,x:0}}
+
                   title='Links' className='max-[810px]:mt-8' >
                       <div
                        className='flex min-[810px]:w-[90%] min-[810px]:justify-start min-[810px]:gap-10 max-[810px]:justify-between w-[80%]  items-center  '>

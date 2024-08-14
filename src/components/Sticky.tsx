@@ -1,14 +1,14 @@
-import React, { ComponentProps, } from 'react'
+import  { forwardRef, } from 'react'
 import {motion} from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
-interface StickyProps{
+export type StickyProps={
 content:string;
+className:string;
 }
-export const Sticky:React.FC<StickyProps & ComponentProps<'div'>> = ({content,className}) => {
+export const Sticky=forwardRef<HTMLDivElement,StickyProps>(({content,className},ref) => {
   return (
-    
-
     <motion.div
+    ref={ref}
     drag
     initial={{rotate:0}}
     dragMomentum={false}
@@ -18,5 +18,5 @@ export const Sticky:React.FC<StickyProps & ComponentProps<'div'>> = ({content,cl
         <p className='flex w-full font-gae text-[#474747] font-medium  text-wrap  flex-wrap'>{content}</p>
     </motion.div>
   )
-}
+})
 
