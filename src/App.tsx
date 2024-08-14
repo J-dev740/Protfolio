@@ -1,4 +1,5 @@
 import {About, Hero, RootLayout,Projects, Talk} from './components'
+import Test from './components/text'
 
 
 
@@ -13,7 +14,9 @@ function App() {
       <About/>
       <Projects/>
       <Talk/>
+      <Test/>
     </RootLayout>
+    
     </>
   )
 }
