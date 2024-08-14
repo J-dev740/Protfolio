@@ -2,8 +2,8 @@
 import { Sticky } from './Sticky'
 import {motion} from 'framer-motion'
 
+const StickyMotion=motion(Sticky);
 export const Hero = () => {
-    const StickyMotion=motion(Sticky);
   return (
     <motion.div 
     initial={{opacity:0,scale:0.2}}

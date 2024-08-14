@@ -34,10 +34,12 @@ const LinkItemMotion=motion(LinkItem);
 
 
 
-
 interface LinkItem{
     link:string;
     icon:IconType;
+}
+interface SkillItem{
+    skill:string;
 }
 export const links:LinkItem[]=[
     {
@@ -67,6 +69,9 @@ export const links:LinkItem[]=[
 // }
  export const About =forwardRef<HTMLDivElement>(({...props},ref) => {
 
+const StickyMotion1=motion(Sticky);
+
+
   return (
     <Section 
     {...props}
@@ -77,7 +82,12 @@ export const links:LinkItem[]=[
         className='flex  min-[810px]:flex-row  flex-col w-full items-start min-[810px]:gap-x-5 justify-center'>
 {/* first section */}
             <div className='  flex flex-col items-start max-[810px]:self-center min-[810px]:w-1/2 min-[810px]:items-center justify-start px-4 py-2 '>
-                  <div className='flex relative  w-[230px] h-[230px] '>
+                  <motion.div 
+                                                  initial={{y:10,opacity:0}}
+                                                  whileInView={{y:0,opacity:1}}
+                                                  transition={{duration:0.5,when:'beforeChildren', stiffness:300,staggerChildren:0.3,damping:2}}
+                                                  viewport={{once:true,amount:0.5}}
+                  className='flex relative  w-[230px] h-[230px] '>
                       {/* sparkiling vector  */}
                       <div
                           className='w-[52px] h-[52px] relative flex'
@@ -98,13 +108,32 @@ export const links:LinkItem[]=[
                           src={curve} className='absolute flex w-[70px] h-[90px]    left-2 bottom-2' />
                       {/* yours truly */}
                       <p className='font-bold  font-gae text-[32px] flex absolute bottom-0 right-1'>Yours Truly</p>
-                  </div>
+                  </motion.div>
                   <div className=' relative  mt-2  flex w-[230px] h-[488px]'>
-                    <Sticky content={'Versatile Tool'} className='absolute bg-purple-300 left-1 top-5 drop-shadow-xl'/>
-                    <Sticky content={'1+ years of Experience '} className='absolute  left-[122px] top-[100px] bg-yellow-300 drop-shadow-xl'/>
-                    <Sticky content={'Sticky'} className='absolute bg-cyan-300 left-0 top-[250px] sm:top-[300px] z-20 drop-shadow-xl'/>
-                    <Sticky content={'Competetive Programmer'} className='absolute  -right-[20px] top-[200px] sm:top-[250px] z-10 bg-lime-300 drop-shadow-3xl shadow-black '/>
-                    <Sticky
+                    <StickyMotion1
+                                initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
+                                animate={{opacity:1,rotate:25,}}
+                                transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
+                     content={'Versatile Tool'} className='absolute bg-purple-300 left-1 top-5 drop-shadow-xl'/>
+                    <StickyMotion1
+                                initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
+                                animate={{opacity:1,rotate:25,}}
+                                transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
+                    content={'1+ years of Experience '} className='absolute  left-[122px] top-[100px] bg-yellow-300 drop-shadow-xl'/>
+                    <StickyMotion1
+                                                   initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
+                                                   animate={{opacity:1,rotate:25,}}
+                                                   transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
+                     content={'Sticky'} className='absolute bg-cyan-300 left-0 top-[250px] sm:top-[300px] z-20 drop-shadow-xl'/>
+                    <StickyMotion1 
+                                                   initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
+                                                   animate={{opacity:1,rotate:25,}}
+                                                   transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
+                    content={'Competetive Programmer'} className='absolute  -right-[20px] top-[200px] sm:top-[250px] z-10 bg-lime-300 drop-shadow-3xl shadow-black '/>
+                    <StickyMotion1
+                                                   initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
+                                                   animate={{opacity:1,rotate:25,}}
+                                                   transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
                     // style={{rotate:'40'}}
                      content={'From India'} className='absolute  left-[20px] sm:top-[400px] z-10  top-[350px] bg-gradient-to-tl  from-teal-600  to-white drop-shadow-xl'/>
 
@@ -118,10 +147,10 @@ export const links:LinkItem[]=[
 {/* second section */}
               <div className='flex flex-col  min-[810px]:w-1/2 items-center justify-center gap-y-[50px] w-full p-2  '>
                   <LinksMotion
-                    initial={{y:20,opacity:0}}
+                    initial={{y:40,opacity:0}}
                     whileInView={{y:0,opacity:1}}
-                    transition={{duration:1,when:'beforeChildren',staggerChildren:0.3}}
-                    viewport={{once:false,amount:0.3}}
+                    transition={{duration:0.5,when:'beforeChildren', stiffness:200,staggerChildren:0.3,damping:2}}
+                    viewport={{once:true,amount:0.5}}
 
                   title='Links' className='max-[810px]:mt-8' >
                       <div
@@ -130,21 +159,31 @@ export const links:LinkItem[]=[
                               <LinkItemMotion
                               initial={{y:20,opacity:0}}
                               whileInView={{y:0,opacity:1}}
-                              transition={{duration:0.2,type:'spring',delay:0.3+index/10,damping:5}}
-                              viewport={{once:false,amount:0.3}}
+                              transition={{duration:0.2,type:'spring',delay:0.2+index/10,damping:3}}
+                              viewport={{once:true,amount:0.5}}
 
                                 key={index}icon={item.icon} link={item.link} />
                           ))}
                       </div>
                   </LinksMotion>
-                  <Subsection title='skills' >
+                  <LinksMotion
+                    initial={{y:40,opacity:0}}
+                    whileInView={{y:0,opacity:1}}
+                    transition={{duration:0.5,when:'beforeChildren', stiffness:200,staggerChildren:0.3,damping:2}}
+                    viewport={{once:true,amount:0.5}}
+                   title='skills' >
                       <div className='flex w-[50%] items-center min-[810px]:justify-start justify-between text-wrap flex-wrap gap-y-2 gap-x-2'>
-                          {skills.map((item) => (
-                              <SkillItem key={item} skill={item} />
+                          {skills.map((item,index:number) => (
+                              <SkillItemMotion
+                              initial={{y:20,opacity:0}}
+                              whileInView={{y:0,opacity:1}}
+                              transition={{duration:0.2,type:'spring',delay:0.2+index/10,damping:3}}
+                              viewport={{once:true,amount:0.3}}
+                               key={index} skill={item} />
                           ))}
 
                       </div>
-                  </Subsection>
+                  </LinksMotion>
                   <Subsection title='Experience' >
                       <Subsection className='text-[20px]' title='Mo Ventures'>
 
@@ -200,10 +239,13 @@ export const links:LinkItem[]=[
 const skills=[
     'frontend','backend','blockchain','DataStructures & Algorithms','System Design'
 ]
-const SkillItem=({skill}:{skill:string})=>(
-    <div className='flex w-fit   justify-center items-center rounded-[14px] border-[2px] border-[#474747] p-1 font-semibold font-gae   '>
+const SkillItem=forwardRef<HTMLDivElement,SkillItem >(({skill},ref)=>(
+    <div 
+    ref={ref}
+    className='flex w-fit   justify-center items-center rounded-[14px] border-[2px] border-[#474747] p-1 font-semibold font-gae   '>
         {skill}
     </div>
-)
+))
+const SkillItemMotion=motion(SkillItem)
 
 
