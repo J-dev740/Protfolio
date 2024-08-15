@@ -4,7 +4,7 @@ import '../App.css'
 const Test = () => {
   return (
     /* From Uiverse.io by Galahhad */ 
-<label className=" flex absolute w-[200px] h-[100px] p-2 mt-4 top-0 right-0 bb8-toggle">
+<label className=" flex  scale-50 absolute w-[200px] h-[100px] p-2 mt-4 top-0 right-0 bb8-toggle">
       <input className="bb8-toggle__checkbox" type="checkbox"/>
       <div className="bb8-toggle__container">
         <div className="bb8-toggle__scenery">
