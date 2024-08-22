@@ -115,7 +115,7 @@ const StickyMotion1=motion(Sticky);
                                 whileInView={{opacity:1,rotate:25,}}
                                 viewport={{once:true,amount:0.5}}
                                 transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
-                     content={'Versatile Tool'} className='absolute bg-purple-300 left-1 top-5 drop-shadow-xl'/>
+                     content={'Worked on Patented Projects'} className='absolute bg-purple-300 left-1 top-5 drop-shadow-xl'/>
                     <StickyMotion1
                                 initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
                                 whileInView={{opacity:1,rotate:25,}}
@@ -127,7 +127,7 @@ const StickyMotion1=motion(Sticky);
                                                    whileInView={{opacity:1,rotate:25,}}
                                                    viewport={{once:true,amount:0.5}}
                                                    transition={{duration:1, type:'spring', stiffness:100,  damping:8, delay:1   }}
-                     content={'Sticky'} className='absolute bg-cyan-300 left-0 top-[250px] sm:top-[300px] z-20 drop-shadow-xl'/>
+                     content={'Solved 400+ Leetcode Questions'} className='absolute bg-cyan-300 left-0 top-[250px] sm:top-[300px] z-20 drop-shadow-xl'/>
                     <StickyMotion1 
                                                    initial={{rotate:-50, opacity:0, transformOrigin:'top left', originY:0,originX:-0.2 }}
                                                    whileInView={{opacity:1,rotate:25,}}
